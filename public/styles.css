@@ -1,4 +1,48 @@
+
+
 section {
     margin: 0 auto;
     max-width: 1000px;
+}
+
+body {
+    padding-top: var(--spacing);
+  
+    font-size: var(--font-size);
+    line-height: 1.5;
+    font-family: var(--font-family-base);
+  }
+
+/*** Layout ***/
+
+/* Utan um allt efni, miðjar og setur breidd */
+.wrapper {
+    /* Útbýr bil á milli lóðréttra eininga */
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 100%;
+    gap: var(--gutter);
+  
+    margin: 1 auto;
+    width: calc(100% - (2 * var(--offset)));
+    max-width: var(--max-width);
+}
+section {
+  padding-bottom:4%;
+}
+
+table {
+
+  border-spacing: 4px;
+}
+
+
+th {
+  background-color:green;
+  Color:white;
+}
+
+td {
+  text-align: center;
+  padding-right: 0.5%;
 }
