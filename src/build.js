@@ -2,30 +2,35 @@ import { join } from 'path';
 import { writeFile, readFile, readdir } from 'fs/promises';
 
 import { dataTemplate, makeHTML, makeIndex } from './make-html.js';
-import { findMax, findMean, findMedian, findMin, findRange, findstdev, findSum, findVariance, parseIt, strToNumArr } from './parser.js';
+import { parseIt, strToNumArr } from './parser.js';
+import { findMax, findMean, findMedian, findMin, findRange, findstdev, findSum, findVariance } from './calc.js';
+import { readFiles } from './readfile.js';
+
 import parser from 'number-parsing';
+
 
 const DATA_DIR = './data';
 const OUPUT_DIR = './dist';
 
-
-
 async function main() {
-    const files = await readdir(DATA_DIR);
+    const files = await readFiles(DATA_DIR);
+    //const files = await readdir(DATA_DIR);
+    console.log(files);
     
     const infos = [];
-    const nr = [];
 
     for(const file of files) {
         const path = join(DATA_DIR, file);
         const info = await readFile(path);
+        
         //Strengur af öllu gagnasetti
         const str = info.toString('utf-8');
+        
 
-        //Fylki af löglegu gagnasetti í str formi
+        //Fylki af "löglegu" gagnasetti í str formi
         const parsed = parseIt(str);
         
-        //Fylki af löglegu gagnasetti í num formi
+        //Fylki af "löglegu" gagnasetti í num formi
         const numParsed = strToNumArr(parsed);
 
         var vari = findVariance(numParsed);

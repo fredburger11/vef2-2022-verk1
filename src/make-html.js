@@ -51,14 +51,13 @@ export function makeIndex(entries) {
     let list = '';
     for(const entry of entries) {
         const site = parser(entry);
-        //const { site } = entry;
         const link = `<li><a href="${`${site}.html`}">Gagnasafn: ${site}.txt</a></li>`;
         list += link;
     }
     return `<ul>${list}</ul>`
 }
 /**
- * Takes HTML for data bla blab bla
+ * Takes HTML for data and puts it into the body
  */
 export function dataTemplate(path, data) {
     return `

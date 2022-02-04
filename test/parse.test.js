@@ -1,21 +1,26 @@
 import { describe, expect, it } from '@jest/globals';
-import { parse } from '../src/parser';
+import { parseIt, strToNumArr } from '../src/parser';
 
 describe('parser', () => {
-  it.only('parses number file', () => {
-    const input = 100;
+  it('parses a string', () => {
+    const input = "1\n2\n3\n4\n28.297.200,123\n# Comment\nEkki comment";
 
-    const parsed = parse(input);
-    console.log('object :>> ', parsed, parsed == '<h1 id="hello-world">100</h1>');
+    const parsed = parseIt(input);
+    //console.log('parsed :>>', parsed);
 
-    expect(parsed).toBe(100n);
+    expect(parsed).toEqual([ 1, 2, 3, 4, 28297200.123 ]);
+
+    
   });
 
-  it('parses number file 2', () => {
-    const input = 50;
+  it('parses an array of str', () => {
+    const input = [ "1", "2", "3", "4", "28297200.123" ];
 
-    const parsed = parse(input);
+    const numParsed = strToNumArr(input);
 
-    expect(parsed).toBe('<h1 id="hello-world">50</h1>');
+    expect(numParsed).toEqual([ 1, 2, 3, 4, 28297200.123 ]);
+
+    
   });
+
 });
