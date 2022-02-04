@@ -1,7 +1,7 @@
 {
-    "type": "module",
-    "dependencies": {
-        "cross-env": "^7.0.3",
-        "number-parsing": "^0.3.2"
-      }
+  "type": "module",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "number-parsing": "^0.3.2"
+  }
 }

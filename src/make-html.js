@@ -1,20 +1,20 @@
 import parser from 'number-parsing';
 
 export function makeHTML(str, vari, max, mean, median, min, stdev, sum, range) {
-    const htmlstr = str;
-    const htmlvari = vari;
-    const htmlmax = max;
-    const htmlmean = mean;
-    const htmlmedian = median;
-    const htmlmin = min;
-    const htmlstdev = stdev;
-    const htmlsum = sum;
-    const htmlrange = range;
-    const template = `
+  const htmlstr = str;
+  const htmlvari = vari;
+  const htmlmax = max;
+  const htmlmean = mean;
+  const htmlmedian = median;
+  const htmlmin = min;
+  const htmlstdev = stdev;
+  const htmlsum = sum;
+  const htmlrange = range;
+  const template = `
         <section>
-            Gagnasett: 
+            Gagnasett:
             ${htmlstr}
-            
+
         </section>
         <section>
           <table>
@@ -41,26 +41,26 @@ export function makeHTML(str, vari, max, mean, median, min, stdev, sum, range) {
             </tbody></table>
         </section>
         <section>
-          <p><a href="index.html">Til baka</a></p>  
+          <p><a href="index.html">Til baka</a></p>
         </section>`;
 
-    return template;
+  return template;
 }
 
 export function makeIndex(entries) {
-    let list = '';
-    for(const entry of entries) {
-        const site = parser(entry);
-        const link = `<li><a href="${`${site}.html`}">Gagnasafn: ${site}.txt</a></li>`;
-        list += link;
-    }
-    return `<ul>${list}</ul>`
+  let list = '';
+  for (const entry of entries) {
+    const site = parser(entry);
+    const link = `<li><a href="${`${site}.html`}">Gagnasafn: ${site}.txt</a></li>`;
+    list += link;
+  }
+  return `<ul>${list}</ul>`;
 }
 /**
  * Takes HTML for data and puts it into the body
  */
 export function dataTemplate(path, data) {
-    return `
+  return `
     <!doctype html>
     <html>
         <head>
@@ -69,9 +69,8 @@ export function dataTemplate(path, data) {
         </head>
         <body>
             <div class="wrapper">
-            ${data}  
+            ${data}
             </div>
         </body>
     </html>`;
 }
-

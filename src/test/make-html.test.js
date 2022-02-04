@@ -1,38 +1,48 @@
 import { describe, expect, it } from '@jest/globals';
-import { makeIndex, makeHTML } from '../src/make-html';
+import { makeIndex, makeHTML } from '../make-html.js';
 
 describe('html', () => {
   it('creates a index.html string', () => {
-    const input = [ "data'\'1.txt", "data'\'2.txt"];
+    const input = ["data''1.txt", "data''2.txt"];
 
     const parsed = makeIndex(input);
 
-    const output = `<ul><li><a href="1.html">Gagnasafn: 1.txt</a></li><li><a href="2.html">Gagnasafn: 2.txt</a></li></ul>`;
+    const output = `<ul><li><a href='1.html'>Gagnasafn: 1.txt</a></li><li><a href='2.html'>Gagnasafn: 2.txt</a></li></ul>`;
 
     expect(parsed).toBe(output);
   });
 
   it('creates the data site as a string', () => {
-    const str = "688\n904\n607\n299";
-    const vari = "47102.25";
-    const max = "904";
-    const mean = "624.50";
-    const median = "647.50";
-    const min = "299";
-    const stdev = "217.03";
-    const sum = "2498.00";
-    const range = "605.00";
+    const str = '688\n904\n607\n299';
+    const vari = '47102.25';
+    const max = '904';
+    const mean = '624.50';
+    const median = '647.50';
+    const min = '299';
+    const stdev = '217.03';
+    const sum = '2498.00';
+    const range = '605.00';
 
-    const parsed = makeHTML(str, vari, max, mean, median, min, stdev, sum, range);
+    const parsed = makeHTML(
+      str,
+      vari,
+      max,
+      mean,
+      median,
+      min,
+      stdev,
+      sum,
+      range
+    );
 
     const output = `
         <section>
-            Gagnasett: 
+            Gagnasett:
             688
 904
 607
 299
-            
+
         </section>
         <section>
           <table>
@@ -59,12 +69,9 @@ describe('html', () => {
             </tbody></table>
         </section>
         <section>
-          <p><a href="index.html">Til baka</a></p>  
-        </section>`
+          <p><a href="index.html">Til baka</a></p>
+        </section>`;
 
     expect(parsed).toBe(output);
-    
-
   });
-  
 });
