@@ -1,0 +1,43 @@
+section {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size);
+  line-height: 1.5;
+  padding-top: var(--spacing);
+}
+
+/*** Layout ***/
+
+/* Utan um allt efni, miðjar og setur breidd */
+.wrapper {
+  /* Útbýr bil á milli lóðréttra eininga */
+  display: grid;
+  gap: var(--gutter);
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  margin: 1 auto;
+  max-width: var(--max-width);
+  width: calc(100% - (2 * var(--offset)));
+}
+
+section {
+  padding-bottom: 4%;
+}
+
+table {
+  border-spacing: 4px;
+}
+
+th {
+  background-color: green;
+  color: white;
+}
+
+td {
+  padding-right: 0.5%;
+  text-align: center;
+}
